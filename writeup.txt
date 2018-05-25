@@ -1,0 +1,41 @@
+Josh Loehr -- CSCI 497E -- Prog1 -- writeup.txt
+
+1. Which of the following did you implement, and which did you not implement? 
+    
+    I implemented all modes.
+
+
+
+2. Declare/discuss any aspects of your program that are not working. What are your
+intuitions about why things are not working? What potential causes have you already
+explored and ruled out? Given more time, what would you try next? Detailed answers
+here are critical to getting partial credit for malfunctioning programs, and failure to
+disclose obvious problems will lead to additional penalties.
+
+    To my knowledge, all aspects of my program are working, except for one issue with the CLI. My program requires that N, D, and K be passed as required flags, i.e. '-n N -d D -k K', as opposed to positional arguments. I apologize if this messes up automating the grading, but the Apache commons CLI library did not have support for positional arguments, so I did my best. With additional time, I would have tried to hack some workaround to force the CLI into accepting additional positional arguments at the end of the argument string. 
+
+    One additional minor caveat of using the Apache commons CLI library is that there is no support for running the program with more than one of the -train, -pred, or -eval flags at a time.
+
+
+
+3. What was the most challenging aspect of this assignment, and why?
+    
+    The most tedious aspect of the program was getting the CLI to work properly, although it wasn't too bad. Otherwise, figuring out the dimensionality of matrix multiplications took a little bit of head scratching at times, but it all worked out well without too much pain.
+
+
+
+4.  If you completed both Part II and Part III, how does the runtime compare for each of
+the provided datasets?
+    
+    The runtimes are, for the most part, qualitatively equivalent - the program doesn't take a long time for any of the modes. Gradient descent is clearly a bit slower if the stopping threshold or step size is small enough. This is most pronounced when training on the polynomial dataset, where gradient descent needs very tiny step size and stopping threshold to get comparable results to those of the analytical solution. Ultimately however, this only takes a few seconds at most (when run on the lab computers).
+
+
+
+5. If you completed Part IV, for each of the held out dev sets, what order of polynomial
+gives the best performance?
+
+    I tested analytical models for values of k from 1 to 10 for datasets 2 and 3 (I ignore dataset1 since we did not implement linear regression for k>1 && d>1).
+
+    For dataset2, the any higher order polynomial essentially learns a linear model, i.e. the weights for the higher order terms trend closer and closer to zero. Thus, the MSE for all 10 models was the same.
+
+    For dataset3, the 8th order model (obviously) performed the best. The models trended sharply toward the minimum MSE as K approached 8 from below, and then trended back upward, albeit much slower, as K rose above 8.

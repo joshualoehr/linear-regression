@@ -1,0 +1,9 @@
+Josh Loehr -- CSCI 497E -- Program 1, Plan
+
+1. This program involves implementing linear regression from scratch in Java/C/C++, with only a math operation library for assistance. I am to implement: a training mode, whereby the parameters of the linear regression are learned; a prediction mode, in which the trained model parameters are used on an unseen input to produce a prediction; and an evaluation mode, which will measure the MSE of a trained model over a development set of inputs. The training implementation should be able to use both the closed form analytical solution and the gradient descent method for learning model weights. Finally, polynomial fitting should also be implemented.
+
+2. I anticipate the most challenging part of this program to be getting all of the matrix/vector operations glued together properly. Hopefully it will be readily apparent when I've made an error, since dimensionality is a good benchmark of appropriate matrix algebra.
+
+3. I will implement all four parts.
+
+4. Lecture videos/notes, the textbook(s), professor/classmates.
